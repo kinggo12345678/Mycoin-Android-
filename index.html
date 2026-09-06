@@ -1,0 +1,13 @@
+<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><meta charset="utf-8"><title>MyCoin Demo</title><style>
+body{margin:0;background:#07111f;color:#edf5ff;font-family:Arial;padding:20px}.box{background:#0b192b;border:1px solid #203653;border-radius:18px;padding:20px;margin:12px 0}h1{font-size:32px}h2{color:#67b6ff}p{color:#9db2ca;line-height:1.55}.price{font-size:30px;font-weight:bold}.btn{display:block;width:100%;padding:14px;margin:9px 0;border:0;border-radius:10px;background:#287be9;color:white;font-weight:bold}input{width:100%;padding:13px;box-sizing:border-box;margin:5px 0;border-radius:9px;border:1px solid #29415e;background:#071321;color:#fff}.demo{color:#6ee7a1;font-size:12px}</style></head><body>
+<div class="box"><div class="demo">TESTNET • DEMO ONLY</div><h1>🪙 MyCoin</h1><p>Android Demo App</p><div>MYC / INR</div><div class="price" id="price">₹1.00</div></div>
+<div class="box"><h2>Demo Account</h2><input id="mobile" placeholder="Fake mobile number"><input id="pass" type="password" placeholder="Demo password"><button class="btn" onclick="account()">Create / Login</button><p id="status">No account active.</p></div>
+<div class="box"><h2>Wallet</h2><p>Demo INR: <b id="cash">₹0.00</b><br>MYC: <b id="myc">0.00</b></p><button class="btn" onclick="faucet()">Claim 1,000 Demo MYC</button><button class="btn" onclick="deposit()">Add ₹1,000 Demo INR</button><button class="btn" onclick="buy()">Buy 100 MYC</button><button class="btn" onclick="sell()">Sell 100 MYC</button></div>
+<div class="box"><h2>Important</h2><p>This is a local demo/testnet simulator. No real money, crypto, or blockchain transactions. Do not enter real passwords or financial information.</p></div>
+<script>
+let d=JSON.parse(localStorage.mc||'{"cash":0,"myc":0,"price":1,"user":""}');
+function save(){localStorage.mc=JSON.stringify(d);draw()} function draw(){price.textContent='₹'+d.price.toFixed(2);cash.textContent='₹'+d.cash.toFixed(2);myc.textContent=d.myc.toFixed(2);status.textContent=d.user?'Demo ID: '+d.user:'No account active.'}
+function account(){let m=mobile.value.trim(),p=pass.value;if(!/^\d{8,15}$/.test(m)||p.length<4)return alert('Use a fake mobile (8-15 digits) and 4+ character demo password.');d.user='MYC-'+m.slice(-4);save()}
+function faucet(){if(!d.user)return alert('Create/login first.');d.myc+=1000;save()} function deposit(){if(!d.user)return alert('Create/login first.');d.cash+=1000;d.price*=1.02;save()}
+function buy(){if(d.cash<101)return alert('Need Demo INR.');d.cash-=101;d.myc+=100;d.price*=1.01;save()} function sell(){if(d.myc<100)return alert('Need MYC.');d.myc-=100;d.cash+=99;d.price*=.99;save()} draw();
+</script></body></html>
