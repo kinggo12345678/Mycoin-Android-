@@ -1,0 +1,282 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #07111f;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 6%;
+  background: rgba(5, 10, 20, 0.95);
+  border-bottom: 1px solid #1e3552;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffd54a;
+}
+
+nav {
+  display: flex;
+  gap: 18px;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #ffd54a;
+}
+
+main {
+  width: 100%;
+}
+
+.hero {
+  min-height: 520px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  padding: 70px 8%;
+  background: radial-gradient(circle at right, #12345c, #07111f 60%);
+}
+
+.hero > div:first-child {
+  max-width: 600px;
+}
+
+.tag {
+  color: #4db8ff;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+h1 {
+  font-size: clamp(40px, 8vw, 70px);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+h1 span {
+  color: #ffd54a;
+}
+
+.hero p:not(.tag) {
+  color: #c5d2e3;
+  font-size: 18px;
+  margin-bottom: 28px;
+}
+
+.btn,
+button {
+  display: inline-block;
+  border: none;
+  border-radius: 12px;
+  padding: 13px 20px;
+  background: #ffd54a;
+  color: #101010;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:hover,
+button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.coin {
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, #164d83, #07111f);
+  border: 8px solid #dcae32;
+  box-shadow: 0 0 35px rgba(255, 213, 74, 0.35);
+  color: #ffd54a;
+  font-size: 38px;
+  font-weight: bold;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  padding: 25px 8%;
+  background: #0b1829;
+}
+
+.stats div {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #1d3858;
+  border-radius: 15px;
+  background: #0e2035;
+}
+
+.stats b {
+  display: block;
+  color: #ffd54a;
+  font-size: 25px;
+}
+
+.stats small {
+  color: #9fb2c9;
+}
+
+.card {
+  max-width: 850px;
+  margin: 35px auto;
+  padding: 28px;
+  background: #0d1b2d;
+  border: 1px solid #1d3858;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.card h2 {
+  color: #ffd54a;
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.balance {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-radius: 14px;
+  background: #07111f;
+  margin-bottom: 20px;
+}
+
+.balance span {
+  color: #9fb2c9;
+}
+
+.balance strong {
+  color: #4db8ff;
+  font-size: 25px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.actions button:last-child {
+  background: #4db8ff;
+}
+
+.message {
+  margin-top: 15px;
+  color: #7ee787;
+  min-height: 24px;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  padding: 12px;
+  margin-top: 8px;
+  background: #07111f;
+  border-radius: 10px;
+  color: #c5d2e3;
+}
+
+.note {
+  color: #8fa3ba;
+  font-size: 13px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 15px;
+  margin-top: 50px;
+  background: #050b14;
+  color: #7f91a8;
+  border-top: 1px solid #1e3552;
+}
+
+@media (max-width: 700px) {
+  header {
+    padding: 14px 5%;
+  }
+
+  nav {
+    gap: 10px;
+  }
+
+  nav a {
+    font-size: 14px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 55px 6%;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .coin {
+    width: 150px;
+    height: 150px;
+    font-size: 30px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+    padding: 20px 6%;
+  }
+
+  .card {
+    margin: 25px 6%;
+    padding: 22px;
+  }
+
+  .balance {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+}
